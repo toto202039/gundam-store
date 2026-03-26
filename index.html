@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="side-menu-panel" id="sideMenuPanel" aria-label="Side menu">
+        <button class="side-menu-close" id="sideMenuClose" aria-label="Close side menu">×</button>
+        <a href="#" class="side-menu-item" title="Home">🏠<span>หน้าหลัก</span></a>
+        <a href="#" class="side-menu-item" title="Cart">🛒<span>ตะกร้า</span></a>
+        <a href="#" class="side-menu-item" title="Search">🔎<span>ค้นหา</span></a>
+        <a href="#" class="side-menu-item" title="Favorite">♥<span>โปรด</span></a>
+        <a href="#" class="side-menu-item" title="Profile">👤<span>โปรไฟล์</span></a>
+    </div>
+    <div class="side-menu-backdrop" id="sideMenuBackdrop"></div>
+
+    <div style="background-color: black; margin-bottom: 0px;">
+        <img style="width: 100%; height: auto;" src="https://media.discordapp.net/attachments/972761844982878208/1486729266774147132/cfbb19f80c422348.png?ex=69c69007&is=69c53e87&hm=21f16307d4a43fb9c6d8a076d21da8d2658f05f577e8b0812680e42d144e3c6e&=&format=webp&quality=lossless&width=1860&height=140" alt="">
+    </div>
+
+    <nav>
+        <button class="side-menu-toggle" id="sideMenuToggle" aria-label="Open side menu">☰</button>
+        <ul class="menu">
+            <li><a href="index.html">สินค้า</a></li>
+            <li><a href="market.html">หน้าแรก</a></li>
+            <li><a href="service.html">วิธีการสั่งซื้อ/จัดส่ง</a></li>
+            <li><a href="about.html">แจ้งชําระเงิน</a></li>
+            <li><a href="about.html">กันดั้มคืออะไร</a></li>
+            <li><a href="about.html">FAQ คําถามต่างๆ</a></li>
+            <li><a href="about.html">ติดต่อเรา</a></li>
+        </ul>
+        <button class="account-btn">Account</button>
+    </nav>
+
+
+    <div class="slider-wrapper">
+        <button id="prevBtn">&lt;</button>
+        <img id="sliderImg" src="https://da.lnwfile.com/_/da/_raw/a4/3z/3z.jpg" alt="">
+        <button id="nextBtn">&gt;</button>
+    </div>
+
+    <script>
+        const images = [
+            "https://da.lnwfile.com/_/da/_raw/a4/3z/3z.jpg",
+            "https://da.lnwfile.com/_/da/_raw/7d/l5/dj.jpg",
+            "https://da.lnwfile.com/_/da/_raw/lt/on/mi.jpg"
+        ];
+        let currentIndex = 0;
+
+        const imgElement = document.getElementById('sliderImg');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateImage() {
+            imgElement.classList.remove('fade-in');
+            void imgElement.offsetWidth;
+            imgElement.src = images[currentIndex];
+            imgElement.classList.add('fade-in');
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+            resetAutoSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+            resetAutoSlide();
+        });
+
+        let autoSlideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }, 5000); // เปลี่ยน 5 วินาที
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            }, 5000);
+        }
+
+        const sideMenuToggle = document.getElementById('sideMenuToggle');
+        const sideMenuPanel = document.getElementById('sideMenuPanel');
+        const sideMenuClose = document.getElementById('sideMenuClose');
+        const sideMenuBackdrop = document.getElementById('sideMenuBackdrop');
+
+        sideMenuToggle.addEventListener('click', () => {
+            sideMenuPanel.classList.add('open');
+            sideMenuBackdrop.classList.add('visible');
+        });
+
+        function closeSideMenu() {
+            sideMenuPanel.classList.remove('open');
+            sideMenuBackdrop.classList.remove('visible');
+        }
+
+        sideMenuClose.addEventListener('click', closeSideMenu);
+        sideMenuBackdrop.addEventListener('click', closeSideMenu);
+    </script>
+
+<h1 style="color: white; text-align: center; margin-top: 50px; font-family: monospace;">PREORDER SCHEDULE CLICK HERE</h1>
+
+<div style="margin-bottom: 20px;">
+    <a href="market.html">
+        <img style="width: 90%; height: auto; margin-left: 6%; margin-top: 5px;" src="https://media.discordapp.net/attachments/972761844982878208/1486750938008911892/image.png?ex=69c6a436&is=69c552b6&hm=00709f9912647feeab117205573ea0dea1baf238dd4bb11344d78fa70eff6b2e&=&format=webp&quality=lossless&width=1860&height=576" alt="">
+    </a>
+</div>
+<section class="new-arrivals" style="margin-top: 20px;">
+    <div style="text-align: center;">
+        <h1>NEW ARRIVAL / RE-STOCK</h1>
+    </div>
+    <div class="product-grid">
+        <article class="product-card">
+            <img src="https://inwfile.com/s-da/tcxnmj.jpg" alt="MG The O (Early Bird)" />
+            <div class="product-info">
+                <h2>MG The O (Early Bird, shipping Friday)</h2>
+                <p class="badge">In stock</p>
+                <p class="price">$155.99</p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="https://inwfile.com/s-da/sytmli.jpg" alt="Bandai® High Grade HG RX-105 XI GUNDAM" />
+            <div class="product-info">
+                <h2>Bandai® High Grade HG RX-105 XI GUNDAM</h2>
+                <p class="badge">In stock</p>
+                <p class="price">$33.99</p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="https://inwfile.com/s-da/8xd44e.jpg" alt="Bandai® Perfect Grade Unleashed PG RX-78-2 GUNDAM 40th Anniversary Ver" />
+            <div class="product-info">
+                <h2>Bandai® Perfect Grade Unleashed PG RX-78-2 GUNDAM 40th Anniversary Ver</h2>
+                <p class="badge">In stock</p>
+                <p class="price">$34.99</p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="https://da.lnwfile.com/_/da/_raw/yy/32/m1.jpg" alt="PG Unleashed Nu Gundam LED Unit Set" />
+            <div class="product-info">
+                <h2>PG Unleashed Nu Gundam LED Unit Set</h2>
+                <p class="badge">In stock</p>
+                <p class="price"><del>$179.99</del> <strong>$149.99</strong></p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+                
+            </div>
+        </article>
+                <article class="product-card">
+            <img src="https://da.lnwfile.com/_/da/_raw/b8/b0/l7.jpg" alt="Bandai® HG ZGMF-X666S LEGEND GUNDAM" />
+            <div class="product-info">
+                <h2>Bandai® HG ZGMF-X666S LEGEND GUNDAM</h2>
+                <p class="badge">In stock</p>
+                <p class="price"><del>$179.99</del> <strong>$149.99</strong></p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+                
+            </div>
+        </article>
+                <article class="product-card">
+            <img src="https://inwfile.com/s-da/7e8m2t.jpg" alt="Bandai® HG RX-104FF PENELOPE" />
+            <div class="product-info">
+                <h2>Bandai® HG RX-104FF PENELOPE</h2>
+                <p class="badge">In stock</p>
+                <p class="price"><del>$179.99</del> <strong>$149.99</strong></p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+                
+            </div>
+        </article>
+                <article class="product-card">
+            <img src="https://inwfile.com/s-da/3656qk.jpg" alt="Bandai® Master Grade MG Gundam Barbatos Lupus" />
+            <div class="product-info">
+                <h2>Bandai® Master Grade MG Gundam Barbatos Lupus</h2>
+                <p class="badge">In stock</p>
+                <p class="price"><del>$179.99</del> <strong>$149.99</strong></p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+                
+            </div>
+        </article>
+                <article class="product-card">
+            <img src="https://inwfile.com/s-da/z5vycc.jpg" alt="Bandai® RealGrade RG ZGMF-X20A STRIKE FREEDOM GUNDAM" />
+            <div class="product-info">
+                <h2>Bandai® RealGrade RG ZGMF-X20A STRIKE FREEDOM GUNDAM</h2>
+                <p class="badge">In stock</p>
+                <p class="price"><del>$179.99</del> <strong>$149.99</strong></p>
+                <a class="primary-btn" href="#">ADD TO CART</a>
+                
+            </div>
+        </article>
+        
+    </div>
+</section>
+
+<h1 style="text-align: center;">Explore Our Products</h1>
+<a id="viewproducts" style="display: block; text-align: center; margin-top: 20px;" href="#">Click here</a>
+
+<footer>
+    <div class="footer-content footer-grid">
+        <div class="footer-left">
+            <div class="footer-brand">
+                <div class="brand-text">
+                    <h2>KMITL กันดั้ม กันพลา ประเทศไทย</h2>
+                    <span>THAILAND NO.1 GUNDAM GUNPLA &amp; PLAMO STORE</span>
+                </div>
+                <div class="brand-heart">♥</div>
+            </div>
+
+            <div class="join-card">
+                <button class="join-btn">Join เป็นสมาชิกกิจกว​​าร</button>
+                <span class="member-count">7959</span>
+            </div>
+            <p class="join-hint">สมัครสมาชิกวันนี้ เพื่อรับสิทธิพิเศษ</p>
+
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">F</a>
+                <a href="#" aria-label="Instagram">I</a>
+                <a href="#" aria-label="Line">L</a>
+                <a href="#" aria-label="TikTok">T</a>
+                <a href="#" aria-label="X">X</a>
+                <a href="#" aria-label="YouTube">Y</a>
+            </div>
+        </div>
+
+        <div class="footer-right">
+           
+            <h3>KMITL GUNDAM (THAILAND) กันดั้ม กันพลา</h3>
+            <p>Department of KMITL ENTERPRISE CO., LTD.</p>
+            <p>บริษัท เจดับเบิ้ลยูซี สิบสี่ จำกัด เลขที่ 0/00-0/00 อาคารพระจอม เกกีงาม1 ต.สจล อ.ลาดกระบัง กทม. 11111</p>
+            <p>JWC 14 Company Limited, No. 0/00-0/00, Phra Chom Keke Ngam Building 1, S.Jon Subdistrict, Lat Krabang District, Bangkok 11111</p>
+            <p>Tel: (66) 0928040042  Website: www.kmitlgundam.com</p>
+        </div>
+    </div>
+
+    </div>
+
+    
+
+    <div class="footer-bottom">
+        <p>This is mock up website only use for JWC 14 register</p>
+    </div>
+</footer>
+
+</body>
+</html>
+
